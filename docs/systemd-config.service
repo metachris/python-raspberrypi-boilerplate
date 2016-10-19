@@ -1,0 +1,17 @@
+[Unit]
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+WorkingDirectory=/server/boilerplate
+ExecStart=/usr/bin/python main.py
+Restart=always
+RestartSec=3
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=boilerplate
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
